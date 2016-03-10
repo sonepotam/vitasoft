@@ -45,13 +45,9 @@ public class InMemoryDriverRepositoryImplTest {
 
     @Test
     public void testGetByName() throws Exception {
-        List<Driver> driverList = repository.getByName( "петров");
-        System.out.println( driverList);
     }
 
     @Test
     public void testGetAll() throws Exception {
-        List<Driver> driverList = repository.getAll();
-        System.out.println( driverList);
     }
 }
