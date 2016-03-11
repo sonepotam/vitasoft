@@ -115,6 +115,7 @@ public class InMemoryInsuranceRepositoryImpl implements InsuranceRepository {
         driverList.add( driver);
         save( insurance);
         //TODO: исправить данные о водителе в справочнике водителей !!!
+        driverRepository.save( driver);
         return driver;
     }
 }
