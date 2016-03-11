@@ -9,6 +9,7 @@ import ru.pavel2107.vitasoft.repository.DriverRepository;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -72,13 +73,14 @@ public class InMemoryDriverRepositoryImpl implements DriverRepository {
 
     @Override
     public List<Driver> getByName(String fio) {
-        SimpleDateFormat sdf = new SimpleDateFormat( "dd.MM.yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
         return repository
                 .values()
                 .stream()
                 .filter(driver -> (
-                        String.format(driver.getSurname() + " " + driver.getName() + " " + driver.getSecondname() + " - " +
-                                sdf.format( driver.getBirthDate()) )
+                        driver.getSurname() + " " + driver.getName() + " " + driver.getSecondname() + " - " +
+                                driver.getBirthDate().format( formatter)
 
                 ).toLowerCase().startsWith( fio.toLowerCase()))
                 .collect(Collectors.toList());

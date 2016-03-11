@@ -132,6 +132,7 @@ function saveDriver() {
             $("#sex").val("");
             $("#category").val("");
             $("#driverid"  ).val("");
+            $("#age"  ).val("");
 
             console.log( "save.standalone");
         },
@@ -242,7 +243,7 @@ $(document).ready(function() {
 
     $('#select').select2({
         ajax: {
-            url: ajaxUrl + "/driver/fio",
+            url: ajaxUrl + "driver/fio",
             dataType: 'json',
             delay: 250,
             data: function (params) {
@@ -359,7 +360,7 @@ $(document).ready(function() {
             $.ajax
             ({
                 type : "GET",
-                url: ajaxUrl + "/driver/fio",
+                url: ajaxUrl + "driver/fio",
                 data : { fio: $("#autocomplete").val() },
                 async: false,
                 success: function( data )
